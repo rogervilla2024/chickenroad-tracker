@@ -1,0 +1,307 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-farm-darker text-farm-light font-sans antialiased;
+    background-image:
+      linear-gradient(180deg, rgba(28, 25, 23, 0.98) 0%, rgba(12, 10, 9, 1) 100%);
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-farm-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-chicken-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-chicken-500;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Card styles */
+  .card {
+    @apply bg-stone-900/80 backdrop-blur-sm border border-stone-800 rounded-xl shadow-lg;
+  }
+
+  .card-header {
+    @apply px-6 py-4 border-b border-stone-800;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  /* Lane indicator styles */
+  .lane {
+    @apply relative h-12 rounded-lg transition-all duration-300;
+  }
+
+  .lane-safe {
+    @apply bg-grass-600/30 border-2 border-grass-500;
+  }
+
+  .lane-danger {
+    @apply bg-red-600/30 border-2 border-red-500;
+  }
+
+  .lane-current {
+    @apply ring-2 ring-chicken-400 ring-offset-2 ring-offset-stone-900;
+  }
+
+  /* Road pattern background */
+  .road-bg {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 50px,
+        rgba(245, 158, 11, 0.1) 50px,
+        rgba(245, 158, 11, 0.1) 60px
+      );
+  }
+
+  /* Farm fence pattern */
+  .fence-pattern {
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 20px,
+        rgba(120, 53, 15, 0.3) 20px,
+        rgba(120, 53, 15, 0.3) 24px
+      );
+  }
+
+  /* Grass strip at bottom */
+  .grass-strip {
+    @apply h-4 bg-gradient-to-r from-grass-600 via-grass-500 to-grass-600;
+    background-size: 100px 100%;
+    animation: grassWave 3s ease-in-out infinite;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply card p-4 flex flex-col items-center justify-center text-center;
+    @apply hover:border-chicken-500/50 transition-all duration-300;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold text-chicken-400;
+  }
+
+  .stat-label {
+    @apply text-sm text-stone-400 mt-1;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-stone-900;
+  }
+
+  .btn-primary {
+    @apply btn bg-chicken-500 text-stone-900 hover:bg-chicken-400;
+    @apply focus:ring-chicken-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-stone-700 text-stone-100 hover:bg-stone-600;
+    @apply focus:ring-stone-500;
+  }
+
+  .btn-success {
+    @apply btn bg-grass-600 text-white hover:bg-grass-500;
+    @apply focus:ring-grass-500;
+  }
+
+  /* Live indicator */
+  .live-indicator {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full;
+    @apply bg-grass-500/20 border border-grass-500/50 text-grass-400;
+  }
+
+  .live-dot {
+    @apply w-2 h-2 rounded-full bg-grass-400;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  /* History item */
+  .history-item {
+    @apply flex items-center justify-between p-3 rounded-lg;
+    @apply bg-stone-800/50 border border-stone-700/50;
+    @apply hover:bg-stone-800 transition-colors duration-200;
+  }
+
+  /* Lane progress bar */
+  .lane-progress {
+    @apply h-8 rounded-lg overflow-hidden bg-stone-800 relative;
+  }
+
+  .lane-progress-fill {
+    @apply h-full transition-all duration-500 ease-out;
+    @apply bg-gradient-to-r from-chicken-600 to-chicken-400;
+  }
+
+  .lane-progress-label {
+    @apply absolute inset-0 flex items-center justify-center;
+    @apply text-sm font-semibold text-white drop-shadow-lg;
+  }
+
+  /* Chicken icon animation */
+  .chicken-icon {
+    @apply text-chicken-400 transform transition-transform duration-300;
+  }
+
+  .chicken-icon:hover {
+    @apply scale-110;
+    animation: chickenWalk 0.3s ease-in-out;
+  }
+
+  /* Crossing result badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-crossed {
+    @apply badge bg-grass-500/20 text-grass-400 border border-grass-500/30;
+  }
+
+  .badge-hit {
+    @apply badge bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  .badge-lane {
+    @apply badge bg-chicken-500/20 text-chicken-400 border border-chicken-500/30;
+  }
+
+  /* Table styles */
+  .table-container {
+    @apply overflow-x-auto rounded-lg border border-stone-800;
+  }
+
+  .table {
+    @apply w-full text-sm text-left;
+  }
+
+  .table thead {
+    @apply bg-stone-800/80 text-stone-300 uppercase text-xs;
+  }
+
+  .table th {
+    @apply px-4 py-3 font-semibold;
+  }
+
+  .table td {
+    @apply px-4 py-3 border-b border-stone-800/50;
+  }
+
+  .table tbody tr {
+    @apply hover:bg-stone-800/30 transition-colors;
+  }
+}
+
+/* Utility Styles */
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-chicken-400 via-road-400 to-chicken-400;
+  }
+
+  .text-gradient-farm {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-chicken-400 to-grass-400;
+  }
+
+  /* Glow effects */
+  .glow-chicken {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+
+  .glow-danger {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  }
+
+  /* Hide scrollbar utility */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Keyframe animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes chickenWalk {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+}
+
+@keyframes grassWave {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px 0;
+  }
+}
+
+/* Recharts customization */
+.recharts-cartesian-axis-tick-value {
+  @apply fill-stone-400 text-xs;
+}
+
+.recharts-legend-item-text {
+  @apply text-stone-300 !important;
+}
+
+.recharts-tooltip-wrapper {
+  @apply outline-none;
+}
+
+.recharts-default-tooltip {
+  @apply bg-stone-800 border-stone-700 rounded-lg shadow-xl !important;
+}
