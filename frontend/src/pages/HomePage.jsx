@@ -153,6 +153,27 @@ function HomePage() {
         </div>
       </section>
 
+      {/* About Game Section */}
+      <section className="mb-8">
+        <div className="card p-6">
+          <h2 className="text-xl font-semibold text-stone-100 mb-4 flex items-center gap-2">
+            <Bird className="w-5 h-5 text-chicken-400" />
+            What is Chicken Road?
+          </h2>
+          <div className="space-y-4 text-sm text-stone-300">
+            <p>Chicken Road is Evoplay's entertaining lane-crossing instant win game that asks the age-old question: why did the chicken cross the road? In this case, the answer is multipliers up to 10,000x. The game combines charming cartoon visuals with the strategic decision-making of crash-style betting, creating an accessible entry point for new players.</p>
+            <p>Gameplay is intuitive: your chicken starts on one side and must cross multiple lanes of traffic. Each successfully crossed lane increases your multiplier, but get hit by a vehicle and you lose your bet. The genius of Chicken Road lies in its transparency - you can see the traffic patterns and make informed decisions about when to cash out and when to risk another lane.</p>
+            <p>Version 2.0, released in 2023, introduced enhanced graphics, smoother animations, and special bonus lanes that can multiply your rewards even further. With a 96% RTP, Chicken Road has a slightly higher house edge (4%) than some crash games, but compensates with its lower entry barrier and fun factor that keeps casual players engaged.</p>
+            <p>Despite its playful presentation, Chicken Road follows the same random number generation principles as serious crash games. Each lane crossing is an independent random event - no pattern from previous rounds affects your chicken's fate. Play for entertainment, set limits, and remember: even the bravest chicken can't predict traffic.</p>
+          </div>
+          <div className="mt-4 pt-4 border-t border-stone-700/50 flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-stone-700/50 rounded-full text-xs text-stone-400">RTP: 96%</span>
+            <span className="px-3 py-1 bg-stone-700/50 rounded-full text-xs text-stone-400">Provider: Evoplay</span>
+            <span className="px-3 py-1 bg-stone-700/50 rounded-full text-xs text-stone-400">Max: 10,000x</span>
+          </div>
+        </div>
+      </section>
+
       {/* Quick Stats */}
       <section className="mb-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

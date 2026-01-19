@@ -58,7 +58,7 @@ export const gameConfig = {
   },
 
   // Domain
-  domain: 'chickenroadtracker.com',
+  domain: 'chickenroadstats.com',
   ports: {
     frontend: 3013,
     backend: 8013,
@@ -90,7 +90,7 @@ export const gameConfig = {
 
   // Disclaimer text
   disclaimer: {
-    affiliation: 'ChickenRoadTracker.com is NOT affiliated with, endorsed by, or connected to Evoplay in any way. This is an independent statistics tracking service.',
+    affiliation: 'ChickenRoadStats.com is NOT affiliated with, endorsed by, or connected to Evoplay in any way. This is an independent statistics tracking service.',
     gambling: 'Gambling involves risk. Please gamble responsibly. If you have a gambling problem, seek help at BeGambleAware.org or call 1-800-522-4700.',
     educational: 'This platform is for educational and informational purposes only. Past results do not predict future outcomes.',
     fallacy: 'Remember: Each crossing is independent. Past lane success or failure does not influence future results (Gambler\'s Fallacy).',
@@ -98,9 +98,9 @@ export const gameConfig = {
 
   // Contact Information
   contact: {
-    general: 'contact@chickenroadtracker.com',
-    support: 'support@chickenroadtracker.com',
-    legal: 'legal@chickenroadtracker.com',
+    general: 'contact@chickenroadstats.com',
+    support: 'support@chickenroadstats.com',
+    legal: 'legal@chickenroadstats.com',
   },
 };
 
